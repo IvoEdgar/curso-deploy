@@ -1,8 +1,65 @@
-<html>
-    <head>
-        <title>Curso de Deploy</title>
-    </head>
-    <body>
-        Hello World!
-    </body>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Curso de Deploy</title>
+	<style type="text/css">
+body {
+	background-image: url("img/cream-pixels.png");
+}
+
+.bold {
+	font-weight: bold;
+}
+
+#content {
+	margin: 0 auto;
+	width: 960px;
+	border: 1px solid black;
+	padding: 40px;
+	border-radius: 20px;
+	margin-top: 100px;
+}
+
+#titulo {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#formulario {
+	margin: 0 auto;
+	width: 550px;
+}
+
+#resultado {
+	font-weight: bold;
+	margin-top: 20px;
+}
+
+#resultado span {
+	color: red;
+	margin-left: 10px;
+}
+</style>
+</h:head>
+<h:body>
+	<div id="content">
+		<h2 id="titulo">#{helloWorld.greetings()}</h2>
+		<h:form id="formulario">
+			<h:panelGrid columns="4" cellpadding="5">
+				<h:outputLabel styleClass="bold" for="nome" value="Digite seu nome:" />
+				<p:inputText id="nome" value="#{helloWorld.name}" />
+				<p:commandButton value="Processar" update="nome-invertido"
+					icon="pi pi-check" />
+				<p:commandButton value="Limpar" action="#{helloWorld.clean()}"
+					update="nome nome-invertido" icon="pi pi-times"
+					style="background: red; border: 1px solid red" />
+			</h:panelGrid>
+			<div id="resultado">
+				<h:outputLabel for="nome-invertido" value="Seu nome invertido é:" />
+				<h:outputText id="nome-invertido" value="#{helloWorld.nameReversed}" />
+			</div>
+		</h:form>
+	</div>
+</h:body>
 </html>
