@@ -62,7 +62,7 @@
                         <artifactId>tomcat7-maven-plugin</artifactId>
                         <version>2.2</version>
                         <configuration>
-                            <url>http://localhost:8080/manager/text</url>
+                            <url>http://localhost:8180/manager/text</url>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -80,7 +80,7 @@
                         <artifactId>tomcat7-maven-plugin</artifactId>
                         <version>2.2</version>
                         <configuration>
-                            <url>http://localhost:8080/manager/text</url>
+                            <url>http://localhost:8180/manager/text</url>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -98,7 +98,25 @@
                         <artifactId>tomcat7-maven-plugin</artifactId>
                         <version>2.2</version>
                         <configuration>
-                            <url>http://localhost:8080/manager/text</url>
+                            <url>http://localhost:8180/manager/text</url>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>hom</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/homologacao.properties</filter>
+                </filters>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <url>http://localhost:8180/manager/text</url>
                         </configuration>
                     </plugin>
                 </plugins>
